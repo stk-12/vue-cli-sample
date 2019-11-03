@@ -30,6 +30,10 @@ export default new Router({
       path: "/blog/:id",
       component: BlogDetail,
       props: true
+    },
+    {
+      path: "*",
+      redirect: "/"
     }
   ]
 });
