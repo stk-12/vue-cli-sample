@@ -2,7 +2,9 @@
   <div id="app">
     <Header></Header>
     <div class="contents">
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </div>
     <Footer></Footer>
   </div>
@@ -18,5 +20,14 @@ export default {
 * {
   margin: 0;
   padding: 0;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: 0.4s;
 }
 </style>
