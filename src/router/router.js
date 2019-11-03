@@ -11,18 +11,22 @@ export default new Router({
   mode: "history",
   routes: [
     {
+      name: "top",
       path: "/",
       component: Top
     },
     {
+      name: "about",
       path: "/about",
       component: About
     },
     {
+      name: "blog",
       path: "/blog",
       component: Blog
     },
     {
+      name: "blog-detail",
       path: "/blog/:id",
       component: BlogDetail,
       props: true
