@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <div class="contents">
-      <transition name="fade" mode="out-in">
+      <transition name="fade" mode="out-in" @before-enter="beforeEnter">
         <router-view></router-view>
       </transition>
     </div>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    beforeEnter() {
+      this.$root.$emit('triggerScroll'); //this.$root ルートのVueインスタンス
+    }
+  }
 }
 </script>
 

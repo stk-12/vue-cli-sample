@@ -35,5 +35,32 @@ export default new Router({
       path: "*",
       redirect: "/"
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+
+    return new Promise(resolve => {
+      this.app.$root.$on('triggerScroll', ()=>{ //this.app rooterの挿入されているVueインスタンス
+        let position = { x: 0, y: 0 }
+        if (savedPosition) {
+          position = savedPosition;
+        }
+        if (to.hash) {
+          position = {
+            selector: to.hash
+          };
+        }
+        resolve(position);
+      }) 
+    })
+
+    // if(savedPosition){ //ブラウザバック時
+    //   return savedPosition;
+    // }
+    // if(to.hash) { //hashがあったら
+    //   return {
+    //     selector: to.hash
+    //   }
+    // }
+
+  }
 });
