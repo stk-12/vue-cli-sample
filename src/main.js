@@ -5,6 +5,8 @@ import Footer from './components/modules/Footer.vue';
 import router from './router/router';
 import store from './store/store';
 
+require('@/assets/sass/main.scss');
+
 
 Vue.config.productionTip = false
 
